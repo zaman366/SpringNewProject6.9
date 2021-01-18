@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Favorite car:
+<input type="text" id="myBtn" value="Volvo">
+
+<p>Click the button below to change the text displayed on the input button above.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  document.getElementById("myBtn").value = "BMW";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS `emp`.`attendancedata`;
+CREATE TABLE  `emp`.`attendancedata` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `emp_id` int(11) DEFAULT NULL,
+  `emp_name` varchar(45) DEFAULT NULL,
+  `emp_dep` varchar(45) DEFAULT NULL,
+  `emp_deg` varchar(45) DEFAULT NULL,
+  `submission_date` varchar(45) DEFAULT NULL,
+  `submission_time` varchar(45) DEFAULT NULL,
+  `status_send` varchar(45) DEFAULT NULL,
+  `ip` varchar(45) DEFAULT NULL,
+  `admin_message` varchar(45) DEFAULT NULL,
+  `day_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;

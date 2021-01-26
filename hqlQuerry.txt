@@ -1,0 +1,104 @@
+ ///////////////Batch Insert/////////
+
+    @Override
+    public Salary batchUpdateIncreByGroup(HttpServletRequest request) {
+         Map<String, String[]> requestMap = request.getParameterMap();
+         
+        String[] empId = (String[]) requestMap.get("empId[]");
+         
+        String[] empName = (String[]) requestMap.get("empName[]");
+        String[] empDep = (String[]) requestMap.get("empDep[]");
+        String[] empDeg = (String[]) requestMap.get("empDeg[]");
+        
+        
+        int[] newEmId= new int[empId.length];
+        
+        
+        for(int i = 0; i <newEmId.length; i++){
+             int[] value={5};
+			 
+			 
+            newEmId[i]=Integer.parseInt(empId[i]+value[i]);
+            
+            System.out.println(newEmId[i]);
+        }
+        
+        
+        
+        
+      
+        
+        String[] statusSend = (String[]) requestMap.get("statusSend[]");
+        
+        
+        
+        Attendance attendance;
+        
+        for(int i = 0; i < empId.length; i++){
+            
+           attendance=new Attendance();
+           
+           attendance.setEmpId(Integer.parseInt(empId[i]));
+           
+            System.out.println("hello");
+           attendance.setEmpName(empName[i]);
+           attendance.setEmpDep(empDep[i]);
+           attendance.setEmpDeg(empDeg[i]);
+           
+           attendance.setStatusSend(statusSend[i]);
+           
+           attendanceDAO.save(attendance);
+            
+        }
+       return null;
+    }
+	
+	
+	
+	
+	
+	
+	
+	 /////////////////Batch Insert////////
+    @RequestMapping(value ="/batchInsertToAttendance",method = RequestMethod.POST )
+    public ModelAndView batchInsert(HttpServletRequest request) {
+        
+        attendanceService.saveToAttendane(request);
+        
+        
+        return new ModelAndView("/admin/attendanceDataTable");
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	///////////////////////////
+	
+	String sql = "UPDATE employee4 SET net_salary =salary+(('" + updateSalary + "'/100)*salary) WHERE department='" + department + "'";
+	
+	
+	
+	
+	
+	
+	
+	String sq = "select emp_id,name,department,post,age,salary from employee4 where  department='" + department + "'";
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Query("SELECT item FROM Item WHERE a = ?1 AND b=?2 AND c=?3 AND (myID IS NULL OR myId = ?4)")
+

@@ -1,0 +1,7 @@
+    @RequestMapping(value = "getPrescriptionByNid/{patient_nid}", method = RequestMethod.GET)
+    public Prescription getPrescriptionByNid(@PathVariable("patient_nid") int patient_nid) {
+        //GsonBuilder gson = new GsonBuilder();
+        //Gson g = gson.create();
+        Prescription prescription = prescriptionService.getByNid(patient_nid);
+        return prescription;
+    }

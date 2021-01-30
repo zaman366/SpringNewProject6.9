@@ -1,0 +1,13 @@
+@RequestMapping("/dashboard")
+    public ModelAndView DashBoard(HttpServletRequest request) {
+        String nid = request.getParameter("nid");
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (nid.equalsIgnoreCase("12345") && name.equalsIgnoreCase("admin") && password.equalsIgnoreCase("12345")) {
+            return new ModelAndView("/admin/dashboard");
+        } else {
+            map.put("status", "Incorrect: Nid or Name or Password");
+            return new ModelAndView("/admin/login", "map", map);
+        }
+    }
